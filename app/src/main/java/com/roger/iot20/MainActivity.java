@@ -1,6 +1,7 @@
 package com.roger.iot20;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,6 +21,7 @@ import static com.roger.iot20.database.TABLE_NAME;
 public class MainActivity extends AppCompatActivity {
     EditText regNo;
     Button submit;
+    CardView card;
     TextView nameIN, email, phone_number, departmentIN,cash;
     int i;
     database db;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         departmentIN = (TextView) findViewById(R.id.department);
         submit = (Button) findViewById(R.id.submit);
         cash=(TextView)findViewById(R.id.cash);
+        card=(CardView)findViewById(R.id.card);
+
         final RelativeLayout relativeLayout = findViewById(R.id.child);
         db = new database(this);
         final SQLiteDatabase database = db.getReadableDatabase();
@@ -58,9 +62,11 @@ public class MainActivity extends AppCompatActivity {
                         cursor.moveToFirst();
                         if(cursor.moveToFirst()){
                             //record exists
-                            relativeLayout.setVisibility(View.VISIBLE);
+                            card.setVisibility(View.VISIBLE);
+                           // relativeLayout.setVisibility(View.VISIBLE);
                         }else {
-                            relativeLayout.setVisibility(View.INVISIBLE);
+                            card.setVisibility(View.INVISIBLE);
+                            //relativeLayout.setVisibility(View.INVISIBLE);
                             Toast.makeText(MainActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
                         }
                         while (cursor != null) {
