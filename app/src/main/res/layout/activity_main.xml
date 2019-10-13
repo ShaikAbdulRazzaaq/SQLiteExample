@@ -36,7 +36,7 @@
         android:visibility="invisible"
         app:cardCornerRadius="12dp"
         android:elevation="10dp"
-        app:cardBackgroundColor="#FFFFFF"
+        app:cardBackgroundColor="#EDEDED"
         android:layout_height="wrap_content" >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -103,6 +103,7 @@
                 android:id="@+id/cash"
                 app:fontFamily="@font/acme"
                 android:layout_below="@+id/department"
+                android:layout_marginBottom="10dp"
                 />
 
         </RelativeLayout>
